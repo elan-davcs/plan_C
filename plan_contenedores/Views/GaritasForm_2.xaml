@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="plan_contenedores.Views.GaritasForm_2"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Formulario Garitas"
+    Shell.BackgroundColor="#239B56"
+    Shell.TitleColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png" Priority="0" Clicked="home"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label
+            Margin="0,10,0,0"
+            Padding="15"
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            Text="Datos de la unidad"
+            TextColor="Black" />
+
+        <StackLayout Margin="10,10,0,0" Orientation="Vertical">
+
+            <Label
+                Margin="0,0,5,0"
+                FontSize="16"
+                Text="Operador de la unidad:"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="txt_nomOperador"
+                FontSize="16"
+                Keyboard="Email"
+                Placeholder="Ingresar Nombre"
+                VerticalOptions="Center" />
+        </StackLayout>
+        <StackLayout
+            Margin="0,10,0,0"
+            Padding="10"
+            Orientation="Vertical">
+
+            <Label
+                Margin="0,0,10,0"
+                FontSize="16"
+                Text="Placas de la unidad:"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="txt_placas"
+                FontSize="16"
+                Keyboard="Email"
+                MaxLength="7"
+                Placeholder="Numero de placas"
+                VerticalOptions="Center" />
+        </StackLayout>
+        <StackLayout Margin="10,0,10,0" Orientation="Vertical">
+
+            <Label
+                Margin="0,30,0,0"
+                FontSize="16"
+                Text="Cantidad de contenedores:"
+                TextColor="Black" />
+            <Picker
+                x:Name="ContenedoresCantidad"
+                Title="Selecionar cantidad"
+                FontSize="16"
+                SelectedIndex="0" />
+
+        </StackLayout>
+
+
+        <StackLayout Orientation="Horizontal">
+            <Button
+                Margin="0,50,15,0"
+                BackgroundColor="#4F74FF"
+                Clicked="GaritasForm_3_clicked"
+                CornerRadius="20"
+                FontSize="18"
+                HorizontalOptions="EndAndExpand"
+                Text="Siguiente"
+                WidthRequest="130" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

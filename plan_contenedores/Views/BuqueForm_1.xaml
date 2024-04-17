@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="plan_contenedores.Views.BuqueForm_1"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:plan_contenedores.Views"
+    Title="Formulario Buque"
+    Shell.BackgroundColor="#239B56"
+    Shell.TitleColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png" Priority="0" Clicked="home"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label
+            Margin="0,10,0,0"
+            Padding="15"
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            Text="Buque a operar"
+            TextColor="Black" />
+
+        <StackLayout Margin="10,10,0,0" Orientation="Vertical">
+
+            <Label
+                Margin="0,0,5,0"
+                FontSize="16"
+                Text="Buque:"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="txt_nomBuque"
+                FontSize="16"
+                Keyboard="Email"
+                Placeholder="Ingresar buque"
+                VerticalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Button
+                Margin="0,50,15,0"
+                BackgroundColor="#4F74FF"
+                Clicked="BuqueForm_2_clicked"
+                CornerRadius="20"
+                FontSize="18"
+                HorizontalOptions="EndAndExpand"
+                Text="Siguiente"
+                WidthRequest="130" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

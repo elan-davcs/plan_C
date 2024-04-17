@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="plan_contenedores.Views.GaritasForm_4"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Formulario Garitas"
+    Shell.BackgroundColor="#239B56"
+    Shell.TitleColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png" Priority="0" Clicked="home"/>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label
+            Margin="0,10,0,0"
+            Padding="15"
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            Text="Captura de sellos"
+            TextColor="Black" />
+        <Label
+            x:Name="numContenedores"
+            Margin="0,10,0,0"
+            TextColor="Black" />
+        <StackLayout Margin="10,0,10,0" Orientation="Vertical">
+
+            <Label
+                Margin="0,30,0,0"
+                FontSize="16"
+                Text="Tipo de sello:"
+                TextColor="Black" />
+            <Picker
+                x:Name="tipoSelloPicker"
+                Title="Selecionar tipo de sello"
+                FontSize="16"
+                SelectedIndex="0" />
+        </StackLayout>
+        <StackLayout Margin="10,0,10,0" Orientation="Vertical">
+
+            <Label
+                Margin="0,30,0,0"
+                FontSize="16"
+                Text="Sello:"
+                TextColor="Black" />
+            <Entry
+                x:Name="nombreSelloEntry"
+                FontSize="16"
+                Keyboard="Email"
+                MaxLength="15"
+                VerticalOptions="Center" />
+        </StackLayout>
+        <StackLayout Orientation="Vertical">
+            <Button
+                x:Name="btnAgregar"
+                Margin="0,20,0,0"
+                BackgroundColor="DarkGreen"
+                Clicked="AgregarSello_Clicked"
+                CornerRadius="20"
+                FontSize="18"
+                HorizontalOptions="CenterAndExpand"
+                Text="Agregar"
+                WidthRequest="130" />
+        </StackLayout>
+        <ScrollView>
+            <StackLayout Margin="0,10,0,0" HeightRequest="210">
+                <!--  TableView para mostrar los resultados  -->
+                <ListView x:Name="sellosListView">
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Text="Tipo Sello"
+                                FontAttributes="Bold"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                Text="Nombre Sello"
+                                FontAttributes="Bold"
+                                VerticalOptions="Center" />
+                            <Label
+                                Grid.Column="2"
+                                HorizontalOptions="Center"
+                                Text="Eliminar"
+                                FontAttributes="Bold"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="80" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding TipoSello}"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        Grid.Column="1"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding NombreSello}"
+                                        VerticalOptions="Center" />
+                                    <ImageButton
+                                        Grid.Column="2"
+                                        Command="{Binding Path=BindingContext.EliminarSelloCommand, Source={x:Reference sellosListView}}"
+                                        CommandParameter="{Binding .}"
+                                        Padding="90"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Source="borrarsello.png"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal">
+            <Button
+                Margin="0,50,15,0"
+                BackgroundColor="#4F74FF"
+                Clicked="GaritasForm_5_clicked"
+                CornerRadius="20"
+                FontSize="18"
+                HorizontalOptions="EndAndExpand"
+                Text="Siguiente"
+                WidthRequest="130" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
