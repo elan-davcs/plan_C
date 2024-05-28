@@ -8,7 +8,10 @@
     Shell.BackgroundColor="#239B56"
     Shell.TitleColor="White">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="home.png" Priority="0" Clicked="home"/>
+        <ToolbarItem
+            Clicked="home"
+            IconImageSource="home.png"
+            Priority="0" />
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <Label
@@ -61,6 +64,7 @@
                 Keyboard="Email"
                 MaxLength="4"
                 Placeholder="Ingresar Grua"
+                TextTransform="Uppercase"
                 VerticalOptions="Center" />
         </StackLayout>
         <StackLayout Margin="10,20,0,0" Orientation="Vertical">
@@ -76,6 +80,7 @@
                 Keyboard="Email"
                 MaxLength="5"
                 Placeholder="Ingresar wichero"
+                TextTransform="Uppercase"
                 VerticalOptions="Center" />
         </StackLayout>
         <StackLayout Margin="10,20,0,0" Orientation="Vertical">
@@ -91,6 +96,7 @@
                 FontSize="16"
                 Keyboard="Email"
                 Placeholder="Ingresar Nombre"
+                TextTransform="Uppercase"
                 VerticalOptions="Center" />
         </StackLayout>
 

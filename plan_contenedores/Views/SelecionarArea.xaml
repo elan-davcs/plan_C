@@ -8,9 +8,8 @@
     Shell.BackgroundColor="#239B56"
     Shell.TitleColor="White">
     <StackLayout>
-
         <ScrollView>
-            <VerticalStackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand">
                 <Button
                     Margin="0,300,0,0"
                     BackgroundColor="#4F74FF"
@@ -29,7 +28,7 @@
                     HorizontalOptions="Center"
                     Text="Buque"
                     WidthRequest="250" />
-            </VerticalStackLayout>
+            </StackLayout>
         </ScrollView>
     </StackLayout>
 </ContentPage>

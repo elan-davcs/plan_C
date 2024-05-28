@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("plan_contenedores")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+383308c6965e962da6dd7a23cded8840f7025efc")]
 [assembly: System.Reflection.AssemblyProductAttribute("plan_contenedores")]
 [assembly: System.Reflection.AssemblyTitleAttribute("plan_contenedores")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,4 @@
-using Android.Systems;
+
 using plan_contenedores.Clases;
 using System.Runtime.InteropServices.JavaScript;
 
@@ -6,6 +6,9 @@ namespace plan_contenedores.Views;
 
 public partial class GaritasForm_3 : ContentPage
 {
+    private List<string> _tamanocont = new List<string> {"10OT","20BU","20DC","20FR","20HC","20HE", "20HT","20MA","20OS","20OT","20PL","20PP","20RE","20RH","20TK","20VE",
+            "40AC","40BU","40CH","40DC","40FH","40FR","40HP","40HT","40IS","40MA","40OH","40OS","40OT","40PL","40PW","40RE","40RH","40TA","40VE",
+            "45DC","45DV","45HC","45RH","45TK"};
 
     private string totalFormularios;
     private string tipoEntrada;
@@ -61,15 +64,20 @@ public partial class GaritasForm_3 : ContentPage
         txt_isotype.TextChanged += ValidarEntryIsotype;
 
 
-        ContenedorTamano.ItemsSource = new string[] {"10OT","20BU","20DC","20FR","20HC","20HE", "20HT","20MA","20OS","20OT","20PL","20PP","20RE","20RH","20TK","20VE",
-            "40AC","40BU","40CH","40DC","40FH","40FR","40HP","40HT","40IS","40MA","40OH","40OS","40OT","40PL","40PW","40RE","40RH","40TA","40VE",
-            "45DC","45DV","45HC","45RH","45TK"};
+        ContenedorTamano.ItemsSource = _tamanocont;
 
 
     }
     private async void home(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new SelecionarArea());
+    }
+    private void Buscador1(object sender, TextChangedEventArgs e)
+    {
+        // Filtra la lista de elementos en el Picker según el texto de búsqueda
+        string searchText = e.NewTextValue.ToLower();
+        ContenedorTamano.ItemsSource = _tamanocont.Where(c => c.ToLower().Contains(searchText)).ToList();
+
     }
     private void ValidarEntry(object sender, TextChangedEventArgs e)
     {
@@ -133,8 +141,5 @@ public partial class GaritasForm_3 : ContentPage
             await DisplayAlert("Error", "Por favor, complete todos los campos", "OK");
         }
     }
-
-
-
 
 }

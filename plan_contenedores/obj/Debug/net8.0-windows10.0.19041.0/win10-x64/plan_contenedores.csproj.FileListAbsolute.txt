@@ -178,3 +178,16 @@ C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0
 C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\ocupasplashSplashScreen.scale-150.png
 C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\ocupasplashSplashScreen.scale-200.png
 C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\ocupasplashSplashScreen.scale-400.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.dll
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.Core.dll
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Mvvm.dll
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Speech.dll
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\borrarsello.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\cheque.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\eliminar.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\hamburger.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\home.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\home1.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\remove.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\verfoto.scale-100.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\plan_contenedores.sourcelink.json

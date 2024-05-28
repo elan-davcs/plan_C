@@ -4,6 +4,7 @@ namespace plan_contenedores.Views;
 
 public partial class GaritasForm_1 : ContentPage
 {
+    private string garitasFolderPath; // Ruta de la carpeta principal de garitas
     public GaritasForm_1()
     {
         InitializeComponent();
@@ -22,6 +23,13 @@ public partial class GaritasForm_1 : ContentPage
         string tipoContenedor = OpcionesContenedor.SelectedItem?.ToString();
         if (!string.IsNullOrEmpty(tipoEntrada) && !string.IsNullOrEmpty(tipoContenedor))
         {
+            string folderGarita = "/storage/emulated/0/Download";
+            garitasFolderPath = Path.Combine(folderGarita, tipoEntrada);
+            // Crea la carpeta si no existe
+            if (!Directory.Exists(garitasFolderPath))
+            {
+                Directory.CreateDirectory(garitasFolderPath);
+            }
             var parametros = new Dictionary<string, object>
             {
                 { "TipoEntrada", tipoEntrada.ToString() },

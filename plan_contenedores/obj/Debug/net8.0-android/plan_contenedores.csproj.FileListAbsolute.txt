@@ -1049,3 +1049,7 @@ C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0
 C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\android\src\crc64d6358e7bf64fbac4\SpeechToTextImplementation_SpeechRecognitionListener.java
 C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\resizetizer\r\drawable\home1.png
 C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\resizetizer\r\drawable\cheque.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\plan_contenedores.sourcelink.json
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\resizetizer\r\drawable\remove.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\resizetizer\r\drawable\verfoto.png
+C:\Users\eleaz\source\repos\plan_contenedores\plan_contenedores\obj\Debug\net8.0-android\resizetizer\r\drawable\eliminar.png

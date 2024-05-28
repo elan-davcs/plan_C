@@ -16,23 +16,25 @@
     <ScrollView>
         <VerticalStackLayout>
             <Label
-                Margin="0,10,0,0"
+                Margin="0,20,0,0"
                 Padding="15"
                 FontSize="30"
                 HorizontalTextAlignment="Center"
                 Text="Captura de daños"
                 TextColor="Black" />
+
             <Label
                 x:Name="numContenedores"
                 Margin="0,10,0,0"
                 TextColor="Black" />
-
-            <StackLayout Margin="10,0,10,0" Orientation="Vertical">
+            <Entry Margin="10,0,0,0" Placeholder="Buscar Cara..." TextChanged="Buscador1" x:Name="EntryBuscar1" />
+            <StackLayout Margin="10,0,10,0" Orientation="Horizontal">
 
                 <Label
-                    Margin="0,30,0,0"
+                    Margin="0,0,5,0"
                     FontSize="16"
                     Text="Cara:"
+                    VerticalOptions="Center"
                     TextColor="Black" />
                 <Picker
                     x:Name="Cara"
@@ -42,101 +44,38 @@
                     SelectedIndex="0" />
             </StackLayout>
 
-            <StackLayout Margin="10,0,10,0" Orientation="Vertical">
+            <Entry Margin="10,25,0,0" Placeholder="Buscar Daño..." TextChanged="Buscador2" x:Name="EntryBuscar2" />
+            <StackLayout Margin="10,5,10,0" Orientation="Horizontal">
 
                 <Label
-                    Margin="0,30,0,0"
+                    Margin="0,5,5,0"
                     FontSize="16"
                     Text="Tipo de daño:"
+                    VerticalOptions="Center"
                     TextColor="Black" />
                 <Picker
                     x:Name="Dano"
                     Title="Selecionar Daño"
                     FontSize="16"
+                    WidthRequest="250"
                     ItemsSource="{Binding OpcionesDano}"
                     SelectedIndex="0" />
             </StackLayout>
-            <StackLayout Orientation="Vertical">
+
+            <StackLayout
+                Margin="0,30,0,0"
+                Padding="4"
+                Orientation="Horizontal">
                 <Button
                     x:Name="btnAgregar"
-                    Margin="0,20,0,0"
-                    BackgroundColor="DarkGreen"
+                    BackgroundColor="Blue"
                     Clicked="AgregarDano_Clicked"
                     CornerRadius="20"
                     FontSize="18"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand"
                     Text="Agregar"
                     WidthRequest="130" />
-            </StackLayout>
-            <ScrollView>
-                <StackLayout Margin="0,10,0,0" HeightRequest="210">
-                    <!--  TableView para mostrar los resultados  -->
-                    <ListView x:Name="danosListView">
-                        <ListView.Header>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="80" />
-                                </Grid.ColumnDefinitions>
-
-                                <Label
-                                    Grid.Column="0"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"
-                                    Text="Tipo Cara"
-                                    VerticalOptions="Center" />
-                                <Label
-                                    Grid.Column="1"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"
-                                    Text="Tipo Daño"
-                                    VerticalOptions="Center" />
-                                <Label
-                                    Grid.Column="2"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"
-                                    Text="Eliminar"
-                                    VerticalOptions="Center" />
-                            </Grid>
-                        </ListView.Header>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid Padding="2">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="80" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label
-                                            Grid.Column="0"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding TipoCara}"
-                                            VerticalOptions="Center" />
-                                        <Label
-                                            Grid.Column="1"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding TipoDano}"
-                                            VerticalOptions="Center" />
-                                        <ImageButton
-                                            Grid.Column="2"
-                                            Padding="90"
-                                            Command="{Binding Path=BindingContext.EliminarDanoCommand, Source={x:Reference danosListView}}"
-                                            CommandParameter="{Binding .}"
-                                            HorizontalOptions="Center"
-                                            Source="borrarsello.png"
-                                            VerticalOptions="Center" />
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </ScrollView>
-            <StackLayout Orientation="Horizontal">
                 <Button
-                    Margin="0,50,15,0"
                     BackgroundColor="#4F74FF"
                     Clicked="BuqueForm_6_clicked"
                     CornerRadius="20"
@@ -145,6 +84,99 @@
                     Text="Siguiente"
                     WidthRequest="130" />
             </StackLayout>
+            <ScrollView>
+                <StackLayout
+                    x:Name="stackDanos"
+                    Margin="0,15,0,0"
+                    HeightRequest="210"
+                    IsVisible="false">
+                    <!--  TableView para mostrar los resultados  -->
+                    <ListView x:Name="danosListView" ItemSelected="FotosListView_ItemSelected">
+                        <ListView.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="Quitar"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="Tipo Cara"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Column="2"
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="Tipo Daño"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Grid.Column="3"
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="Foto"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="50" />
+                                        </Grid.ColumnDefinitions>
+                                        <ImageButton
+                                            Grid.Column="0"
+                                            Padding="5"
+                                            Command="{Binding Path=BindingContext.EliminarDanoCommand, Source={x:Reference danosListView}}"
+                                            CommandParameter="{Binding .}"
+                                            HorizontalOptions="Center"
+                                            Aspect="AspectFit"
+                                            Source="eliminar.png"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="12"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding TipoCara}"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Grid.Column="2"
+                                            FontSize="12"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding TipoDano}"
+                                            VerticalOptions="Center" />
+                                        <ImageButton
+                                            Grid.Column="3"
+                                            Padding="5"
+                                            Clicked="verFoto_clicked"
+                                            CommandParameter="{Binding RutaFoto}"
+                                            HorizontalOptions="Center"
+                                            Aspect="AspectFit"
+                                            Source="verfoto.png"
+                                            VerticalOptions="Center" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
