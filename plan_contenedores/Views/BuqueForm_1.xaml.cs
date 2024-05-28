@@ -5,12 +5,13 @@ namespace plan_contenedores.Views;
 
 public partial class BuqueForm_1 : ContentPage
 {
+    private string buqueFolderPath; // Ruta de la carpeta
     public BuqueForm_1()
     {
         InitializeComponent();
 
         //Restrincciones
-        Restricciones.Restriccion_letras_numeros(txt_nomBuque);
+        //Restricciones.Restriccion_letras_numeros(txt_nomBuque);
     }
     private async void home(object sender, EventArgs e)
     {
@@ -20,6 +21,14 @@ public partial class BuqueForm_1 : ContentPage
     {
         if (!string.IsNullOrEmpty(txt_nomBuque.Text))
         {
+            string folderPath = "/storage/emulated/0/Download";
+            buqueFolderPath = Path.Combine(folderPath, txt_nomBuque.Text);
+
+            // Crea la carpeta si no existe
+            if (!Directory.Exists(buqueFolderPath))
+            {
+                Directory.CreateDirectory(buqueFolderPath);
+            }
             var parametros = new Dictionary<string, object>
             {
                 { "NombreBuque", txt_nomBuque.Text }

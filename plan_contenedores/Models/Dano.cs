@@ -10,5 +10,6 @@ namespace plan_contenedores.Models
     {
         public string TipoCara { get; set; }
         public string TipoDano { get; set; }
+        public string RutaFoto { get; set; }
     }
 }

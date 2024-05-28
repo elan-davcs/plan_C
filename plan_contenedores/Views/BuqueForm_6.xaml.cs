@@ -22,6 +22,7 @@ public partial class BuqueForm_6 : ContentPage
     private List<Sello> listaSellos;
     private List<Dano> listaDanos;
     private string ValidarEco = "0";
+    private string datoEco;
     public BuqueForm_6(Dictionary<string, object> parametros)
     {
         InitializeComponent();
@@ -84,7 +85,7 @@ public partial class BuqueForm_6 : ContentPage
                 Console.WriteLine("Se seleccionó la Opción 1");
                 label_eco.IsVisible = true;
                 numero_eco.IsVisible = true;
-                //ValidarEco = "1";
+                ValidarEco = "1";
             }
         };
         opcion2RadioButton.CheckedChanged += (sender, e) =>
@@ -95,6 +96,7 @@ public partial class BuqueForm_6 : ContentPage
                 Console.WriteLine("Se seleccionó la Opción 2");
                 label_eco.IsVisible = false;
                 numero_eco.IsVisible = false;
+                ValidarEco = "0";
             }
         };
     }
@@ -111,7 +113,8 @@ public partial class BuqueForm_6 : ContentPage
             if (Device.RuntimePlatform == Device.Android)
             {
                 // Implementar la lógica para Android
-                folderPath = "/storage/emulated/0/Download";
+                string folderbuqe = Buque; // Path.Combine("/storage/emulated/0/Download", folderName);
+                folderPath = Path.Combine("/storage/emulated/0/Download/", folderbuqe);
             }
             else if (Device.RuntimePlatform == Device.UWP)
             {
@@ -129,8 +132,9 @@ public partial class BuqueForm_6 : ContentPage
             {
                 // Crear un objeto con los datos que deseas guardar
                 DateTime fechaEntrada = DateTime.Now;
-                /*if(ValidarEco == "1")
+                if (ValidarEco == "1")
                 {
+                    datoEco = numero_eco.Text;
                     var datos = new
                     {
                         buque = Buque,
@@ -140,13 +144,33 @@ public partial class BuqueForm_6 : ContentPage
                         opeWichero = OpeWichero,
                         contenedor = Contenedor,
                         isoType = IsoType,
+                        Eco = datoEco,
                         Fecha = fechaEntrada,
                         Tsellos = listaSellos,
                         Tdanos = listaDanos
                     };
+
+                    // Serializar los datos en formato JSON
+                    string jsonData = JsonSerializer.Serialize(datos, new JsonSerializerOptions { WriteIndented = true });
+
+                    // Generar un nombre de archivo único
+                    string nombreArchivo = $"{Contenedor}_{DateTime.Now:yyyyMMddHHmmss}.json";
+
+                    // Obtener la ruta completa del archivo en la carpeta seleccionada
+                    string rutaArchivo = Path.Combine(folderPath, nombreArchivo);
+
+                    // Escribir los datos en el archivo JSON
+                    File.WriteAllText(rutaArchivo, jsonData);
+
+                    // Mostrar una alerta de éxito
+                    //await App.Current.MainPage.DisplayAlert("Éxito", $"Se ha creado el archivo: {nombreArchivo}", "Aceptar");
+
+                    // Imprimir la ruta del archivo en la consola
+                    Console.WriteLine(rutaArchivo);
                 }
                 else
                 {
+                    datoEco = "Piso";
                     var datos = new
                     {
                         buque = Buque,
@@ -156,43 +180,44 @@ public partial class BuqueForm_6 : ContentPage
                         opeWichero = OpeWichero,
                         contenedor = Contenedor,
                         isoType = IsoType,
+                        Eco = datoEco,
                         Fecha = fechaEntrada,
                         Tsellos = listaSellos,
                         Tdanos = listaDanos
                     };
-                }*/
+                    // Serializar los datos en formato JSON
+                    string jsonData = JsonSerializer.Serialize(datos, new JsonSerializerOptions { WriteIndented = true });
 
-                var datos = new
-                {
-                    buque = Buque,
-                    gancho = Gancho,
-                    grua = Grua,
-                    wichero = Wichero,
-                    opeWichero = OpeWichero,
-                    contenedor = Contenedor,
-                    isoType = IsoType,
-                    Fecha = fechaEntrada,
-                    Tsellos = listaSellos,
-                    Tdanos = listaDanos
-                };
+                    // Generar un nombre de archivo único
+                    string nombreArchivo = $"{Contenedor}_{DateTime.Now:yyyyMMddHHmmss}.json";
 
-                // Serializar los datos en formato JSON
-                string jsonData = JsonSerializer.Serialize(datos, new JsonSerializerOptions { WriteIndented = true });
+                    // Obtener la ruta completa del archivo en la carpeta seleccionada
+                    string rutaArchivo = Path.Combine(folderPath, nombreArchivo);
 
-                // Generar un nombre de archivo único
-                string nombreArchivo = $"Contenedor_{DateTime.Now:yyyyMMddHHmmss}.json";
+                    // Escribir los datos en el archivo JSON
+                    File.WriteAllText(rutaArchivo, jsonData);
 
-                // Obtener la ruta completa del archivo en la carpeta seleccionada
-                string rutaArchivo = Path.Combine(folderPath, nombreArchivo);
+                    // Mostrar una alerta de éxito
+                    //await App.Current.MainPage.DisplayAlert("Éxito", $"Se ha creado el archivo: {nombreArchivo}", "Aceptar");
 
-                // Escribir los datos en el archivo JSON
-                File.WriteAllText(rutaArchivo, jsonData);
+                    // Imprimir la ruta del archivo en la consola
+                    Console.WriteLine(rutaArchivo);
+                }
 
-                // Mostrar una alerta de éxito
-                //await App.Current.MainPage.DisplayAlert("Éxito", $"Se ha creado el archivo: {nombreArchivo}", "Aceptar");
-
-                // Imprimir la ruta del archivo en la consola
-                Console.WriteLine(rutaArchivo);
+                /* var datos = new
+                 {
+                     buque = Buque,
+                     gancho = Gancho,
+                     grua = Grua,
+                     wichero = Wichero,
+                     opeWichero = OpeWichero,
+                     contenedor = Contenedor,
+                     isoType = IsoType,
+                     Eco = ValidarEco,
+                     Fecha = fechaEntrada,
+                     Tsellos = listaSellos,
+                     Tdanos = listaDanos
+                 };*/
             }
         }
         catch (Exception ex)
@@ -207,7 +232,7 @@ public partial class BuqueForm_6 : ContentPage
     {
         await SaveFile();
 
-        string text = "Se ha creado el archivo correctamente <img src='cheque.png' width='16' height='16'/>";
+        string text = "Se ha creado el archivo correctamente";
         ToastDuration duration = ToastDuration.Short;
         double fontSize = 14;
         var toast = Toast.Make(text, duration, fontSize);

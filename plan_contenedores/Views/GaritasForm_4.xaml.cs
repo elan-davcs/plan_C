@@ -90,6 +90,7 @@ public partial class GaritasForm_4 : ContentPage
     }
     private void AgregarSello_Clicked(object sender, EventArgs e)
     {
+        stackSellos.IsVisible = true;
         // Obtiene los valores del Picker y Entry
         string tipoSello = tipoSelloPicker.SelectedItem?.ToString();
         string nombreSello = nombreSelloEntry.Text;

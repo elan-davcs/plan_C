@@ -90,6 +90,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = plan_contenedores.Views.Fl
 build_metadata.AdditionalFiles.TargetPath = Views\FlyoutPageT.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\FlyoutPageT.xaml
 
+[C:/Users/eleaz/source/repos/plan_contenedores/plan_contenedores/Views/FotoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = plan_contenedores.Views.FotoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\FotoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\FotoPage.xaml
+
 [C:/Users/eleaz/source/repos/plan_contenedores/plan_contenedores/Views/GaritasForm_1.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = plan_contenedores.Views.GaritasForm_1.xaml

@@ -31,6 +31,7 @@
                 x:Name="txt_nomBuque"
                 FontSize="16"
                 Keyboard="Email"
+                TextTransform="Uppercase"
                 Placeholder="Ingresar buque"
                 VerticalOptions="Center" />
         </StackLayout>

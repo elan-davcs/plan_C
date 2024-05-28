@@ -49,6 +49,7 @@
                 Keyboard="Email"
                 MaxLength="11"
                 Placeholder="Ingresar contenedor"
+                TextTransform="Uppercase"
                 TextChanged="ValidarEntry"
                 VerticalOptions="Center" />
             <Label

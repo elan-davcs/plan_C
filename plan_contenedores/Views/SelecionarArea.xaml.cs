@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace plan_contenedores.Views;
 
 public partial class SelecionarArea : ContentPage
@@ -5,6 +7,7 @@ public partial class SelecionarArea : ContentPage
     public SelecionarArea()
     {
         InitializeComponent();
+
     }
     private async void GaritasForm_1_clicked(object sender, EventArgs e)
     {
